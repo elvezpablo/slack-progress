@@ -1,0 +1,44 @@
+{
+	"configurations": [
+		{
+			"name": "browse:chrome",
+			"request": "launch",
+			"smartStep": true,
+			"sourceMaps": true,
+			"type": "chrome",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}/browse"
+		},
+		{
+			"name": "browse:firefox",
+			"request": "launch",
+			"sourceMaps": "server",
+			"type": "firefox",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}/browse"
+		},
+		{
+			"name": "interact",
+			"request": "launch",
+			"smartStep": true,
+			"sourceMaps": true,
+			"type": "chrome",
+			"url": "http://localhost:3001",
+			"webRoot": "${workspaceFolder}/interact"
+		},
+		{
+			"localRoot": "${workspaceFolder}/serve",
+			"remoteRoot": "${workspaceFolder}/serve",
+			"name": "serve",
+			"port": 9229,
+			"protocol": "inspector",
+			"request": "attach",
+			"restart": true,
+			"smartStep": true,
+			"sourceMaps": true,
+			"timeout": 60000,
+			"type": "node"
+		}
+	],
+	"version": "0.2.0"
+}

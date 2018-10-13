@@ -1,0 +1,29 @@
+{
+	"debug.inlineValues": true,
+	"debug.internalConsoleOptions": "openOnFirstSessionStart",
+	"debug.openDebug": "openOnFirstSessionStart",
+	"debug.openExplorerOnEnd": true,
+	"debug.showInStatusBar": "onFirstSessionStart",
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": false,
+	"files.insertFinalNewline": true,
+	"git.autofetch": true,
+	"npm.packageManager": "yarn",
+	"search.exclude": {
+		"**/**/node_modules": true,
+		"**/dist": true,
+		"**/node_modules": true
+	},
+	"tslint.alwaysShowRuleFailuresAsWarnings": true,
+	"tslint.autoFixOnSave": true,
+	"tslint.packageManager": "yarn",
+	"typescript.autoClosingTags": true,
+	"typescript.autoImportSuggestions.enabled": false,
+	"typescript.implementationsCodeLens.enabled": false,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.referencesCodeLens.enabled": false,
+	"typescript.reportStyleChecksAsWarnings": true,
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"typescript.updateImportsOnFileMove.enabled": "prompt",
+	"typescript.validate.enable": true
+}
