@@ -24,3 +24,8 @@ Uses WebClient `chat` methods `postMessage` and `update`
 - https://github.com/bcicen/slack-progress
 - https://github.com/sfreiberg/progress/blob/master/progress.go
 - https://api.slack.com/docs/messages/builder
+
+## Slack Authentication
+
+- https://api.slack.com/apps/ADERH9Y6P?created=1
+- https://api.slack.com/apps/ADERH9Y6P/oauth?success=1

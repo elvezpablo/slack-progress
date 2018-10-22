@@ -1,14 +1,27 @@
-import { Progress } from './progress';
+import { Progress, progress } from './progress';
+import { config } from 'dotenv';
 
-const token = process.env.ACCESS_TOKEN;
-const channel = 'progress-bot-channel';
+config();
 
-const doIt = async () => {
-  const timestamp = '1539723885.000100';
-  const progress = new Progress(token, channel);
+const { env } = process;
 
-  const ts = await progress.update(5);
-  console.log(ts);
-};
+const token = env.ACCESS_TOKEN;
+const channel = env.CHANNEL;
 
-doIt();
+const progressInstance = new Progress(token, channel);
+
+let count = 1;
+let ts;
+
+const timer = setInterval(async () => {
+  progressInstance.update(count);
+  console.log('ts: ', ts);
+  // ts = await progress(token, channel, count, ts);
+  count += 1;
+  if (count > 10) {
+    clearInterval(timer);
+  }
+  // console.log(ts);
+}, 700);
+
+export { Progress };

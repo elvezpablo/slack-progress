@@ -1,9 +1,7 @@
 import { WebClient, WebAPICallResult } from '@slack/client';
-import { config } from 'dotenv';
+
 import { IOptions } from './options';
 import { bar } from './bar';
-
-config();
 
 const defaultOptions = {
   message: 'Progress Happens'
@@ -19,18 +17,21 @@ class Progress {
   private options: IOptions;
   private ts?: string;
 
-  constructor(token: string, channel: string, ts?: string, options?: IOptions) {
+  constructor(token: string, channel: string, options?: IOptions) {
     this.channel = channel;
     this.options = { ...defaultOptions, ...options };
-    this.ts = ts;
     this.web = new WebClient(token);
   }
 
-  update = async (position: number) => {
+  update = async (position: number, ts?: string, message?: string) => {
     const percent = Math.round(position);
+    if (ts) {
+      this.ts = ts;
+    }
     try {
-      const { ts } = (await this.post(percent)) as IMessageResult;
-      return ts;
+      const result = (await this.post(percent)) as IMessageResult;
+      this.ts = result.ts;
+      return this.ts;
     } catch (err) {
       console.log('err!: ', err);
     }
@@ -44,7 +45,7 @@ class Progress {
       text: message,
       attachments: [
         {
-          text: ` ${percent}% ${bar(percent)}`
+          text: ` ${percent}0% ${bar(percent)}`
         }
       ]
     };
@@ -55,11 +56,13 @@ class Progress {
   };
 }
 
-const staticProgress = (
+const progress = async (
   token: string,
   channel: string,
-  progess: number,
-  ts: string
-) => {};
+  status: number,
+  ts?: string
+) => {
+  return await new Progress(token, channel).update(status, ts);
+};
 
-export { Progress, bar };
+export { Progress, bar, progress };

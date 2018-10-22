@@ -2,6 +2,7 @@
   "devDependencies": {
     "@types/jest": "23.3.5",
     "@types/node": "10.11.7",
+    "@types/yargs": "12.0.1",
     "husky": "1.1.2",
     "jest": "23.6.0",
     "lint-staged": "7.3.0",
@@ -19,14 +20,18 @@
   },
   "name": "slack-progress",
   "version": "1.0.0",
+  "bin": {
+    "slack-progress": "lib/cli.js"
+  },
   "description": "Slack progress bar for long running proccesses ",
   "main": "src/index.js",
   "repository": "https://github.com/elvezpablo/slack-progress.git",
   "author": "Paul Rangel <prangel@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "6.1.0",
+    "@slack/client": "4.8.0",
     "@types/slack-node": "",
-    "@slack/client": "4.8.0"
+    "dotenv": "6.1.0",
+    "yargs": "12.0.2"
   }
 }
